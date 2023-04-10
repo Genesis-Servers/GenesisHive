@@ -46,6 +46,10 @@
         <Compile Include="Properties\AssemblyInfo.cs" />
     </ItemGroup>
     <ItemGroup>
+      <ProjectReference Include="..\..\Genesis Hive\Genesis Hive.csproj">
+        <Project>{914298d5-a7df-4c73-90be-6fa8f9150381}</Project>
+        <Name>Genesis Hive</Name>
+      </ProjectReference>
       <ProjectReference Include="..\Hive\Hive.csproj">
         <Project>{73efcdf7-bc65-4e69-ad3a-0a03cade21db}</Project>
         <Name>Hive</Name>

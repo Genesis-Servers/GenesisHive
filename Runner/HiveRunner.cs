@@ -12,8 +12,9 @@ namespace Runner
         {
             if (!Setup())
                 throw new Exception("Hive Failed to Setup!");
-            
-            HiveRunnerExample();
+
+            Console.WriteLine(SendToExtension("Vehicle", "Test", new ArmaString("mystring1")));
+            //HiveRunnerExample();
             
             Console.WriteLine();
             Console.WriteLine("Press Enter to Exit..");
@@ -27,7 +28,7 @@ namespace Runner
             try
             {
                 var result = new StringBuilder();
-                RVEntry.RVExtension(result,10240,$"[\"{controller}\",\"{method}\",{parameters}]");
+                HiveEntry.RVExtension(result,10240,$"[\"{controller}\",\"{method}\",{parameters}]");
                 return Parser.ArrayFromString(result.ToString());
             }
             catch (Exception e)
@@ -40,7 +41,7 @@ namespace Runner
 
         static bool Setup()
         {
-            var result = SendToExtension("System", "Setup", new ArmaBool(false));
+            var result = SendToExtension("Base.System", "Setup", new ArmaBool(false));
             Console.WriteLine($"Setup Result: {result}");
             return result.SelectBool(0);
         }
