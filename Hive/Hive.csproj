@@ -115,7 +115,14 @@
         <Compile Include="Application\Logging\LogLevel.cs" />
         <Compile Include="Application\Logging\LogMapInfo.cs" />
         <Compile Include="Controllers\ExampleController.cs" />
+        <Compile Include="Controllers\GarageController.cs" />
+        <Compile Include="Controllers\GroupController.cs" />
+        <Compile Include="Controllers\ObjectController.cs" />
+        <Compile Include="Controllers\PlayerController.cs" />
+        <Compile Include="Controllers\PlotController.cs" />
+        <Compile Include="Controllers\StorageController.cs" />
         <Compile Include="Controllers\SystemController.cs" />
+        <Compile Include="Controllers\VehicleController.cs" />
         <Compile Include="Extensions.cs" />
         <Compile Include="RVEntry.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
