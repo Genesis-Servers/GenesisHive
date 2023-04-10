@@ -51,7 +51,7 @@ namespace Hive
                 if (IoC.HiveProcess is null || !HiveProcess.IsSetup)
                 {
                     Win32.MessageBox(IntPtr.Zero, exceptionMessage, "Internal Hive Error",
-                        0x00000010L | 0x00000000L);
+                        Win32.MB_ICONERROR | Win32.MB_OK);
                     Win32.ExitProcess(1);
                 }
                 else
@@ -72,7 +72,7 @@ namespace Hive
             var controllerName = entryArray.Select<ArmaString>(0).Value;
             var methodName = entryArray.Select<ArmaString>(1).Value;
 
-            if (methodName != "Setup" && (IoC.HiveProcess is not null || !HiveProcess.IsSetup))
+            if (methodName != "Setup" && (IoC.HiveProcess is null || !HiveProcess.IsSetup))
                 throw new ApplicationException(
                     "Hive is not Setup. Please Call the HiveController::Setup Method First.");
 
@@ -81,7 +81,7 @@ namespace Hive
                 BindingFlags.IgnoreCase | BindingFlags.Public | BindingFlags.Static);
 
             if (method is null)
-                throw new ApplicationException($"Method: {controllerName}::{methodName} was not Found");
+                throw new ApplicationException($"Method: {controllerName}Controller::{methodName} was not Found");
 
             var methodAttributes = method.GetCustomAttributes(false);
             var hasAttributes = methodAttributes.Length > 0;
