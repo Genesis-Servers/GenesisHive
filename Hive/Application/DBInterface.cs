@@ -250,7 +250,7 @@ namespace Hive.Application
                 {
                     if (pkDataType.StartsWith("varchar", StringComparison.OrdinalIgnoreCase))
                     {
-                        generatedGuid = new Guid().ToString();
+                        generatedGuid = Guid.NewGuid().ToString();
                         rowData.Prepend(new ArmaString(generatedGuid));
                     }
                     if(pkDataType is "int" or "int unsigned")
