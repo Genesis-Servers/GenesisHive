@@ -79,11 +79,19 @@ namespace Hive.Application
                     var columnData = reader[i];
                     var columnName = reader.GetName(i);
                     //Check if Row is Marked as Deleted
-                    if (columnName == "Deleted" && (sbyte)columnData == 1)
+                    if (columnName == "Deleted")
                     {
-                        isDeleted = true;
+                        if((sbyte)columnData == 1)
+                        {
+                            isDeleted = true;
+                        }
+                        //Do Not Append Deleted Column to Final Result
                         break;
                     }
+                    
+                    //Do Not Append DeletedAt Column to Final Result
+                    if (columnName == "DeletedAt")
+                        break;
 
                     //Handle Column Data and Push to List
                     if (columnData == DBNull.Value)
