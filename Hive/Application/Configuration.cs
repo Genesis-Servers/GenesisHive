@@ -34,5 +34,8 @@ namespace Hive.Application
         
         [JsonProperty(Required = Required.Always)]
         public string[] LocalObjects { get; set; }
+        
+        [JsonProperty(Required = Required.Always)]
+        public string[] LocalObjectVectorChecks { get; set; }
     }
 }
